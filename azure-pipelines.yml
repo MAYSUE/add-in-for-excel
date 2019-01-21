@@ -26,3 +26,10 @@ steps:
   inputs:
     rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
     includeRootFolder: false
+- task: AzureRmWebAppDeployment@3
+  inputs:
+    azureSubscription: 'it4a'
+    WebAppName: 'it4a'
+    Package: '$(System.DefaultWorkingDirectory)'
+    GenerateWebConfig: true
+    WebConfigParameters: '-Handler iisnode -NodeStartFile server.js -appType node'
