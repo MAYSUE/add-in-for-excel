@@ -28,8 +28,8 @@ steps:
     includeRootFolder: false
 - task: AzureRmWebAppDeployment@3
   inputs:
-    azureSubscription: 'it4a'
-    WebAppName: 'it4a'
+    azureSubscription: 'forexcel'
+    WebAppName: 'forexcel'
     Package: '$(System.DefaultWorkingDirectory)'
     GenerateWebConfig: true
     WebConfigParameters: '-Handler iisnode -NodeStartFile server.js -appType node'
