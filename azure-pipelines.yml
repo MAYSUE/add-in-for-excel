@@ -23,3 +23,10 @@ steps:
     rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
     includeRootFolder: false
 - task: PublishBuildArtifacts@1
+- task: AzureRmWebAppDeployment@3
+  inputs:
+    azureSubscription: 'forword'
+    WebAppName: 'forword'
+    Package: '$(System.DefaultWorkingDirectory)'
+    GenerateWebConfig: true
+    WebConfigParameters: '-Handler iisnode -NodeStartFile server.js -appType node'
